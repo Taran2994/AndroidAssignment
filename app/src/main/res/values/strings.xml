@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Order Food</string>
+    <string-array name="mealname">
+        <item>Burrito</item>
+        <item>Pizza</item>
+        <item>Chicken wings</item>
+        <item>Burger</item>
+        <item>Fries</item>
+        <item>Steak</item>
+        <item>Butter Chicken</item>
+        <item>Pancakes</item>
+        <item>Salad</item>
+        <item>Coffee</item>
+    </string-array>
 </resources>
