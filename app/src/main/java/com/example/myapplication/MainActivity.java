@@ -2,13 +2,18 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,11 +22,14 @@ public class MainActivity extends AppCompatActivity {
     EditText edit2;
     RadioGroup rg;
     String meal;
+    Button order;
     Double price = 0.0;
     int quantity= 1;
     int tippp=10;
     double totalPrice;
     SeekBar sb;
+    ImageView img;
+    CheckBox cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         edit2=findViewById(R.id.editText2);
         sb= findViewById(R.id.seekBar);
         rg=findViewById(R.id.radioGroup);
+        img=findViewById(R.id.imageView);
+        order=findViewById(R.id.button);
+        cb= findViewById(R.id.checkBox);
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -60,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     price=10.00;
                     edit1.setText("$10");
+                    img.setImageResource(R.drawable.burrito);
+
+
 
 
                 }
@@ -67,46 +81,55 @@ public class MainActivity extends AppCompatActivity {
                 {
                     edit1.setText("$11");
                     price=11.00;
+                    img.setImageResource(R.drawable.pizza);
                 }
                 else if(meal.equals("Chicken wings"))
                 {
                     edit1.setText("$12");
                     price=12.00;
+                    img.setImageResource(R.drawable.chicken);
                 }
                 else if(meal.equals("Burger"))
                 {
                     edit1.setText("$13");
                     price=13.00;
+                    img.setImageResource(R.drawable.burger);
                 }
                 else if(meal.equals("Fries"))
                 {
                     edit1.setText("$14");
                     price=14.00;
+                    img.setImageResource(R.drawable.fries);
                 }
                 else if(meal.equals("Steak"))
                 {
                     edit1.setText("$15");
                     price=15.00;
+                    img.setImageResource(R.drawable.steak);
                 }
                 else if(meal.equals("Butter Chicken"))
                 {
                     edit1.setText("$16");
                     price=16.00;
+                    img.setImageResource(R.drawable.butter);
                 }
                 else if(meal.equals("Pancakes"))
                 {
                     edit1.setText("$17");
                     price=17.00;
+                    img.setImageResource(R.drawable.pancakes);
                 }
                 else if(meal.equals("Salad"))
                 {
                     edit1.setText("$18");
                     price=18.00;
+                    img.setImageResource(R.drawable.salad);
                 }
                 else if(meal.equals("Coffee"))
                 {
                     edit1.setText("$19");
                     price=19.00;
+                    img.setImageResource(R.drawable.coffee);
                 }
                 calPrice(tippp,quantity,price);
             }
@@ -136,6 +159,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cb.isChecked() &&
+                        !(edit1.getText().toString().equalsIgnoreCase(""))&&!(edit2.getText().toString().equalsIgnoreCase("")))
+                {
+                    Intent intent= new Intent(getApplicationContext(),Display.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Please enter all values and Checkbox",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
