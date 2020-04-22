@@ -168,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
                 if(cb.isChecked() &&
                         !(edit1.getText().toString().equalsIgnoreCase(""))&&!(edit2.getText().toString().equalsIgnoreCase("")))
                 {
+                    Orders order= new Orders(meal,totalPrice);
+                    SingletonClass.getInstance().orderList.add(order);
+
+
                     Intent intent= new Intent(getApplicationContext(),Display.class);
                     startActivity(intent);
                 }
