@@ -16,11 +16,12 @@ public class OrderAdapter extends ArrayAdapter {
     private LayoutInflater layoutInflater;
     private int layoutResource;
     private ArrayList<Orders> orderList;
+
     public OrderAdapter(@NonNull Context context, int resource, ArrayList<Orders> olist) {
-        super(context, resource,olist);
+        super(context, resource, olist);
         this.layoutInflater = LayoutInflater.from(context);
         this.layoutResource = resource;
-        this.orderList=olist;
+        this.orderList = olist;
     }
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

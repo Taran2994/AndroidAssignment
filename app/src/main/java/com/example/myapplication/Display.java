@@ -16,10 +16,10 @@ public class Display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-        SingletonClass obj=SingletonClass.getInstance();
+        SingletonClass obj = SingletonClass.getInstance();
 
 
-        ListView listView=findViewById(R.id.listv);
+        ListView listView = findViewById(R.id.listv);
 
 
         orderAdapter = new OrderAdapter(this, R.layout.order_adapter_layout, obj.orderList);
